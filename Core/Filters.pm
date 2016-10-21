@@ -1,6 +1,6 @@
 package Core::Filters;
 
-use Core::DB;
+use DB;
 use Core::User;
 use Data::Dumper;
 use Model;

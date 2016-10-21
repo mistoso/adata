@@ -5,7 +5,7 @@ use strict;
 use Model;
 use Model::SaleMod;
 use Model::Saler; 
-use Core::DB;
+use DB;
 use Core::User;
 use Data::Dumper;
 

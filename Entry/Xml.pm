@@ -10,7 +10,7 @@ use Apache2::Const qw/OK NOT_FOUND REDIRECT SERVER_ERROR FORBIDDEN M_GET HTTP_MO
 use Apache2::SubRequest;
 use Apache2::RequestRec;
 use Logger;
-use Core::DB;
+use DB;
 use Tools;
 use Core::Template qw/get_template/;
 use Core::Session;

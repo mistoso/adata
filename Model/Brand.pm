@@ -1,6 +1,6 @@
 package Model::Brand;
 use Model;
-use Core::DB;
+use DB;
 use Model::Category;
 
 use Core::User;

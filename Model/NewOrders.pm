@@ -4,7 +4,7 @@ use warnings;
 use strict;
 
 use Model;
-use Core::DB;
+use DB;
 use Model::NewOrdersPositions;
 use Data::Dumper;
 

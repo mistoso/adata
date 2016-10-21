@@ -3,7 +3,7 @@ package Model::Competitor;
 use strict; use warnings;
 use Model;  our @ISA = qw/Model/;
 
-use Core::DB;
+use DB;
 use Model::Category; 
 use Model::SaleMod;
 
@@ -56,7 +56,7 @@ package Model::Competitor::Parse;
 
 use strict; use warnings;
 use Model;  our @ISA = qw/Model/;
-use Core::DB; 
+use DB; 
 
 use Core::Competitor; 
 use LWP::UserAgent; 
@@ -122,7 +122,7 @@ package Model::Competitor::Price;
 
 use strict; use warnings;
 use Model;  our @ISA = qw/Model/;
-use Core::DB;
+use DB;
 
 sub db_table(){'competitors_prices'};
 sub db_columns(){qw/id idCompetitor idMod idCompMod cat_id compModName price updated/};

@@ -2,7 +2,7 @@ package Model::Meta;
 use warnings;
 use strict;
 use Model;
-use Core::DB;
+use DB;
 
 our @ISA = qw/Model/;
 sub db_table() {'meta'};

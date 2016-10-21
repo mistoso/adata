@@ -1,7 +1,7 @@
 package Core::Meta::CAT;
 use Model::Meta;
 use Model::Category;
-use Core::DB;
+use DB;
 
 sub new {
         my $class = shift;

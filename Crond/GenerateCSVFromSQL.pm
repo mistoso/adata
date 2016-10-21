@@ -4,7 +4,7 @@ use strict; use warnings;
 
 sub execute {
 	my $this = shift; use lib "$this->{lib_path}"; 
-    use Cfg; use Core::DB; 
+    use Cfg; use DB; 
     use Core::File;   use Data::Table;  
     use Data::Table::Excel qw( tables2xls );
 

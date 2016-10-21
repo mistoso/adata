@@ -40,7 +40,7 @@ sub test_json(){
 
   $r->content_type('text/json');  
 
-  use Core::DB;
+  use DB;
 
   $db->do("
 		   SELECT salemods.id   		id,

@@ -24,7 +24,7 @@ sub execute {
 # Your code start ehre 
 #--------------------------------------------------------------------
 
-	use Core::DB;
+	use DB;
 	
 	# ... ... ... ...
 	#do something

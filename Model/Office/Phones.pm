@@ -1,6 +1,6 @@
 package Model::Office::Phones;
 use Model;
-use Core::DB;
+use DB;
 use Core::User;
 our @ISA = qw/Model/;
 

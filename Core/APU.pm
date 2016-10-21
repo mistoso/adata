@@ -3,7 +3,7 @@ package Core::APU;
 use Core::User;
 use Data::Dumper;
 use Model::SaleMod;
-use Core::DB;
+use DB;
 use Core::PriceUpdate;
 
 sub new (){

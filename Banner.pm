@@ -2,7 +2,7 @@ package Banner;
 
 use warnings;
 use strict;
-use Core::DB;
+use DB;
 
 use Model::SaleMod;
 use Model::Brand;

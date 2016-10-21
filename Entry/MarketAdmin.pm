@@ -12,7 +12,7 @@ use Core::PriceUpdate;
 use Core::Session;
 use Cfg;
 use Logger;
-use Core::DB;
+use DB;
 use Core::User;
 use Core::Find;
 use Core::Xls;

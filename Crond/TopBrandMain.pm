@@ -9,7 +9,7 @@ sub execute {
 	# Your code start ehre 
         use Core;
 	use Cfg;
-	use Core::DB;
+	use DB;
 
 	$arg{lib} = Core->new();
 

@@ -22,7 +22,7 @@ sub log {
 sub execute {
         my $this = shift;
 	use Core;
-	use Core::DB;
+	use DB;
 
 	my $sth = $db->prepare("show tables like 'pu_%'");
 	$sth->execute();

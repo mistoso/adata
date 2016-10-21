@@ -4,7 +4,7 @@ use strict;
 
 use Model;
 use Model::Brand;
-use Core::DB;
+use DB;
 use Data::Dumper;
 use Core::User;
 

@@ -2,7 +2,7 @@ package Core::Xls;
 
 use Data::Dumper;
 use Core;
-use Core::DB;
+use DB;
 use Cfg;
 use Spreadsheet::ParseExcel;
 

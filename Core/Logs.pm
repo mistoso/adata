@@ -1,5 +1,5 @@
 package Core::Logs;
-use Core::DB;
+use DB;
 use strict;
 
 sub new(){

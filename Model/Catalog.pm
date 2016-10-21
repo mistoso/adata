@@ -1,7 +1,7 @@
 ############################################################################
 package Model::Catalog;
 use Model;
-use Core::DB;
+use DB;
 use Data::Dumper;
 use Cfg;
 use Core::Gallery;
@@ -478,7 +478,7 @@ sub catalog_xls_csv_data(){
 package Model::CatalogCategory;
 
 use Model;
-use Core::DB;
+use DB;
 use Model::Category;
 use Data::Dumper;
 
@@ -498,7 +498,7 @@ sub category(){
 
 package Model::CatalogSettings;
 use Model;
-use Core::DB;
+use DB;
 use Data::Dumper;
 
 our @ISA = qw/Model/;
@@ -511,7 +511,7 @@ sub _check_write_permissions(){1};
 
 package Model::CatalogSettingsDefault;
 use Model;
-use Core::DB;
+use DB;
 use Data::Dumper;
 
 our @ISA = qw/Model/;
@@ -526,7 +526,7 @@ sub _check_write_permissions(){1};
 package Model::CatalogContacts;
 use Model;
 use Core;
-use Core::DB;
+use DB;
 use Data::Dumper;
 use HTML::TokeParser::Simple;
 use Core::Price;
@@ -594,7 +594,7 @@ if ($row->{'usd'} eq ""){$usd= $row->{'uah'} / $currency->{'value'};}else{$usd =
 
 package Model::CatalogPrices;
 use Model;
-use Core::DB;
+use DB;
 use Data::Dumper;
 use Cfg;
 use Clean;

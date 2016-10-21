@@ -27,7 +27,7 @@ sub execute {
 #--------------------------------------------------------------------
 	
     
-    use Core::DB;
+    use DB;
 	use FindBin qw/$Bin/;
     use Data::Dumper;
     use lib "$Bin/../lib";

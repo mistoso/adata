@@ -2,7 +2,7 @@ package Model::FeatureGroups;
 use warnings;
 use strict;
 use Model;
-use Core::DB;
+use DB;
 use Data::Dumper;
 use Model::Feature;
 

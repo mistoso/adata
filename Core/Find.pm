@@ -4,7 +4,7 @@ use Sphinx::Search;
 use POSIX;
 use Data::Dumper;
 use Cfg;
-use Core::DB;
+use DB;
 use Clean;
 use strict;
 

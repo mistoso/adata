@@ -21,7 +21,7 @@ sub log {
 
 sub execute {
      use Core;
-     use Core::DB;
+     use DB;
 
 my $ext;
 my $item;

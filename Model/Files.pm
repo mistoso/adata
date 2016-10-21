@@ -2,7 +2,7 @@ package Model::Files;
 use warnings;
 use strict;
 use Model;
-use Core::DB;
+use DB;
 our @ISA = qw/Model/;
 sub db_table()   { 'files' };
 sub db_columns() { qw/id name text deleted/ };

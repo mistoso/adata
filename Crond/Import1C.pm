@@ -7,7 +7,7 @@ use Clean;
 
 use Model::SaleMod;
 
-use Core::DB;
+use DB;
 use Cfg;
 
 use Data::Types	qw( :all );

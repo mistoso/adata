@@ -3,7 +3,7 @@ use Model::Meta;
 use Model::Category;
 use Data::Dumper;
 use Core::Price;
-use Core::DB;
+use DB;
 
 sub new {
         my $class = shift;

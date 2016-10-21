@@ -3,7 +3,7 @@ package Core;
 use warnings;
 use strict;
 
-use Core::DB;
+use DB;
 use Cfg;
 
 use Core::User;
@@ -221,7 +221,7 @@ sub search_dec(){
 }
 sub searchall(){
     my ($class,$table,$value) = @_;
-    use Core::DB;
+    use DB;
     use Model::Category;
     my @buf;
 

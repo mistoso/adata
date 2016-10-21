@@ -27,7 +27,7 @@ sub execute {
 
     use Core;
     use Cfg;
-    use Core::DB;
+    use DB;
     use Base::StTemplate;
     
     $arg{lib} = Core->new();

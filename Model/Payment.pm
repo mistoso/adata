@@ -1,7 +1,7 @@
 package Model::Payment;
 use Model;
 use Model::Currency;
-use Core::DB;
+use DB;
 
 our @ISA = qw/Model/;
 

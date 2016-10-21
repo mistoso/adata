@@ -2,7 +2,7 @@ package Model::Keyword;
 use warnings;
 use strict;
 use Model;
-use Core::DB;
+use DB;
 use Data::Dumper;
 
 our @ISA = qw/Model/;

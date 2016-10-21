@@ -1,7 +1,7 @@
 package Model::PageRedirect;
 
 use Model;
-use Core::DB;
+use DB;
 our @ISA = qw/Model/;
 
 sub db_table() {'page_redirect'};

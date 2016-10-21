@@ -2,7 +2,7 @@ package Core::SalemodsSort;
 #use warnings;
 #use strict;
 
-use Core::DB;
+use DB;
 use Core::User;
 use Data::Dumper;
 use Core::Filters;
@@ -93,7 +93,7 @@ sub session_sales_sort_count(){
 
 #package Core::SalemodsSortBK;
 #use warnings; use strict;
-#use Core::DB; use Core::User;
+#use DB; use Core::User;
 
 #sub session_sales_sort(){
 #    my ( $self, $a ) = @_;

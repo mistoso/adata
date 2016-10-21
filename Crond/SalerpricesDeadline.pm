@@ -26,7 +26,7 @@ sub execute {
 # Your code start ehre 
 #--------------------------------------------------------------------
 
-	use Core::DB;
+	use DB;
     use Model::SaleMod;
     
     my $sthd=$db->prepare('update salerprices,salers set salerprices.price = 0 where salers.id = idSaler and deadline > 0 and deadline < (TO_DAYS(CURDATE()) - TO_DAYS(salerprices.updated))');

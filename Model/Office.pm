@@ -1,7 +1,7 @@
 package Model::Office;
 
 use Model;
-use Core::DB;
+use DB;
 use Core::User;
 use Model::Office::Schedule;
 use Model::Office::Phones;

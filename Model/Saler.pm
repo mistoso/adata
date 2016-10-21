@@ -3,7 +3,7 @@ package Model::Saler;
 use warnings;
 use strict;
 
-use Core::DB;
+use DB;
 use Core::User;
 
 use Data::Dumper;

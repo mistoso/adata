@@ -2,7 +2,7 @@ package Model::SaleMod;
 
 use latest;
 
-use Core;           use Core::DB; 
+use Core;           use DB; 
 use Core::Gallery;  use Cfg;
 use Model::Comment; use Data::Dumper;
 

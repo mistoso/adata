@@ -12,7 +12,7 @@ use Apache2::RequestRec;
 
 use Logger;
 use Core::Logs;
-use Core::DB;
+use DB;
 use Tools;
 use Data::Dumper;
 use Core::SalemodsSort;

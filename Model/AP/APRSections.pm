@@ -2,7 +2,7 @@
 package Model::APRSections;
 
 use Model;
-use Core::DB;
+use DB;
 use Core::Gallery;
 use Cfg;
 

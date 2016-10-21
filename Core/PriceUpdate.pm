@@ -3,7 +3,7 @@ package Core::PriceUpdate;
 use Data::Dumper;
 use Core;
 use Cfg;
-use Core::DB;
+use DB;
 use Spreadsheet::ParseExcel;
 use Apache2::Upload;
 use Apache2::Request;

@@ -1,6 +1,6 @@
 package Core::Meta::CHILDCATBRAND;
 use Model::Meta;
-use Core::DB;
+use DB;
 
 sub new {
         my $class = shift;

@@ -22,7 +22,7 @@ sub execute {
 #--------------------------------------------------------------------
 # Your code start ehre 
 #--------------------------------------------------------------------
-    use Core::DB;
+    use DB;
     use FindBin qw/$Bin/;
     use Data::Dumper;
     use lib "$Bin/../lib";

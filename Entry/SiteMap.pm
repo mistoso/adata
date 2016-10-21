@@ -7,7 +7,7 @@ use Apache2::SubRequest;
 use Apache2::RequestRec;
 
 use Logger;
-use Core::DB;
+use DB;
 use Tools;
 use Core::Template  qw/get_template/;
 use Tplc      qw/get_template_c/;

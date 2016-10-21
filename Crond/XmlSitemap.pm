@@ -1,7 +1,7 @@
 package Crond::XmlSitemap;
 use Core;
 use Cfg;
-use Core::DB;
+use DB;
 use Base::StTemplate;
 use POSIX qw(ceil floor);
 

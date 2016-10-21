@@ -2,7 +2,7 @@
 ########################################################
 package Model::APRTypes;
 
-use Model;use Core::DB;
+use Model;use DB;
 our @ISA = qw/Model/;
 
 sub db_table() {'apr_types'};
@@ -170,7 +170,7 @@ sub frame_sections_list() {
 
 package Model::APRSections;
 
-use Model;use Core::DB;use Core::Gallery;
+use Model;use DB;use Core::Gallery;
 use Cfg;
 
 our @ISA = qw/Model/;
@@ -308,7 +308,7 @@ sub disallow_add_comments(){
 package Model::APRPages;
 
 use Model;
-use Core::DB;
+use DB;
 use Core::Gallery;
 use Cfg;
 
@@ -451,7 +451,7 @@ sub comments(){
 package Model::APRContacts;
 
 use Model;
-use Core::DB;
+use DB;
 our @ISA = qw/Model/;
 
 sub db_table() {'apr_contacts'};
@@ -486,7 +486,7 @@ sub gallery(){
 ########################################################
 package Model::APRTypesSettings;
 use Model;
-use Core::DB;
+use DB;
 our @ISA = qw/Model/;
 
 sub db_table() {'apr_types_settings'};

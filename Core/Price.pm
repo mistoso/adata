@@ -3,7 +3,7 @@ package Core::Price;
 use strict;
 
 use Model::Currency;
-use Core::DB;
+use DB;
 
 sub new {
 	my $class = shift;

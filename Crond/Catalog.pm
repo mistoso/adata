@@ -21,7 +21,7 @@ sub execute {
 	use lib "$this->{lib_path}";
 	use Core;
 	use Cfg;
-	use Core::DB;
+	use DB;
 	use Base::StTemplate;
 	use Model::Catalog;
 	#--------------------------------------------------------------------

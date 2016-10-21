@@ -4,7 +4,7 @@ use Error;
 use Logger;
 use Base::Exception;
 use Data::Dumper;
-use Core::DB;
+use DB;
 use Apache2::Cookie;
 use Apache2::RequestUtil;
 

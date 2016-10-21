@@ -1,7 +1,7 @@
 package Model::Cloud;
 
 use Model;
-use Core::DB;
+use DB;
 our @ISA = qw/Model/;
 
 sub db_table() {'cloud'};
@@ -62,7 +62,7 @@ sub contacts_by_url(){
 package Model::CloudItems;
 
 use Model;
-use Core::DB;
+use DB;
 our @ISA = qw/Model/;
 
 sub db_table() {'cloud_items'};
@@ -76,7 +76,7 @@ sub _check_columns_values(){1};
 package Model::CloudContacts;
 
 use Model;
-use Core::DB;
+use DB;
 our @ISA = qw/Model/;
 
 sub db_table() {'cloud_contacts'};

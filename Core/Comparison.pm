@@ -3,7 +3,7 @@ use Core::User;
 use Data::Dumper;
 use Model::SaleMod;
 use Core::User;
-use Core::DB;
+use DB;
 
 sub new {
     my $class = shift;

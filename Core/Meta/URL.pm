@@ -1,6 +1,6 @@
 package Core::Meta::URL;
 use Model::Meta::Url;
-use Core::DB;
+use DB;
 sub new {
         my $class = shift;
         my $this  = ();

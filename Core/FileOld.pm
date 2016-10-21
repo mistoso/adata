@@ -2,7 +2,7 @@ package Core::FileOld;
 
 use Data::Dumper;
 use Core;
-use Core::DB;
+use DB;
 use Cfg;
 use Apache2::Upload;
 use Apache2::Request;

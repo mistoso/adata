@@ -9,7 +9,7 @@ use Apache2::SubRequest;
 use Apache2::RequestRec;
 use Sphinx::Search;
 use Cfg;
-use Core::DB;
+use DB;
 use Tools;
 use Logger;
 use Core::Pager;

@@ -5,7 +5,7 @@ use strict;
 
 use Model;
 use Model::Brand;
-use Core::DB;
+use DB;
 use Data::Dumper;
 use Core::User;
 
@@ -818,7 +818,7 @@ sub generate_filters(){
 
 package Model::PriceBar;
 use Model;
-use Core::DB;
+use DB;
 use warnings;
 
 our @ISA = qw/Model/;

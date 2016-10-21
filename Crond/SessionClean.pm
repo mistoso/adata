@@ -26,7 +26,7 @@ sub execute {
 # Your code start ehre 
 #--------------------------------------------------------------------
 	use Core;
-	use Core::DB;
+	use DB;
 	use Data::Dumper;
 	use Cfg;
 	use Core::Session;

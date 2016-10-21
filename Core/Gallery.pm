@@ -3,7 +3,7 @@ package Core::Gallery;
 #use strict;
 use Image::Magick;
 
-use Core::DB;
+use DB;
 
 use Cfg;
 use Logger;
@@ -108,7 +108,7 @@ sub top(){
 package Core::Gallery::Image;
 use Model;
 use Image::Magick;
-use Core::DB;
+use DB;
 use Cfg;
 use Logger;
 #use warnings;

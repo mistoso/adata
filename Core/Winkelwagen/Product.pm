@@ -3,7 +3,7 @@ package Core::Winkelwagen::Product;
 use Model::SaleMod;
 use Core::Session;
 use Data::Dumper;
-use Core::DB;
+use DB;
 use Logger;
 
 sub getAll() {

@@ -1,7 +1,7 @@
 package Model::APRPages;
 
 use Model;
-use Core::DB;
+use DB;
 use Core::Gallery;
 use Cfg;
 

@@ -26,7 +26,7 @@ sub execute {
 # Your code start ehre 
 #--------------------------------------------------------------------
 
-	use Core::DB;
+	use DB;
 	use Model::SaleMod;
     my $sth = $db->prepare('select s.id from salemods as s inner join category as c3 on c3.id = s.idCategory inner join category as c2 on c2.id = c3.idParent inner join category as c1 on c1.id = c2.idParent where c1.idParent = 0 and c3.isPublic and s.isPublic and s.priceautogen');
     $sth->execute();

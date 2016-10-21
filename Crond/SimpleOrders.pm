@@ -21,7 +21,7 @@ sub log {
 
 sub execute {
      use Core;
-     use Core::DB;
+     use DB;
      use Core::Gallery;
      my $xsth = $db->prepare("truncate table simple_orders;");
      $xsth->execute();

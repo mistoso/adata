@@ -1,6 +1,6 @@
 package Model::Currency;
 use Model;
-use Core::DB;
+use DB;
 use Data::Dumper;
 
 our @ISA = qw/Model/;

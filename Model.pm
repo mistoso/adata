@@ -3,7 +3,7 @@ package Model;
 
 use strict; use warnings;
 
-use Core::DB;
+use DB;
 
 
 sub db_tcolumns() { qw// }
@@ -243,7 +243,7 @@ sub Error(){
 }
 
 package Core::PriceTool;
-use Core::DB;
+use DB;
 sub new(){
 	my ($class,$value) = @_;
 	my $self = { price => $value };
@@ -262,7 +262,7 @@ sub price(){
 }
 
 package ModelList;
-use Core::DB;
+use DB;
 sub new(){
 	my $class = shift;
 	my $self = {

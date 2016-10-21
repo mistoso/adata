@@ -3,7 +3,7 @@ package Core::User;
 use strict;
 use warnings;
 
-use Core::DB;
+use DB;
 use Core::Gallery;
 
 use CGI qw/cookie/;

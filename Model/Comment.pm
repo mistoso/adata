@@ -1,7 +1,7 @@
 package Model::Comment;
 use strict;
 use Model;
-use Core::DB;
+use DB;
 use Model::Category;
 use Model::SaleMod;
 use Data::Dumper;
