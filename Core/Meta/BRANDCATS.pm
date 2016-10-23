@@ -1,4 +1,5 @@
 package Core::Meta::BRANDCATS;
+use warnings; use strict;
 use Model::Meta;
 use DB;
 

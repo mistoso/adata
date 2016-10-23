@@ -1,4 +1,7 @@
 package Core::Comparison;
+
+use warnings; use strict;
+
 use Core::User;
 use Data::Dumper;
 use Model::SaleMod;
@@ -35,8 +38,10 @@ sub del_prod_from_compare(){
 
 sub clean(){
     my $self = shift;
-    my $user = Core::User->current();
+ 
+    my $user = Core::User->current(1);
     my $comprod = $user->session->get('comparison');
+ 
     undef @{$comprod->{'prod'}};
     return 1;
 }
@@ -55,7 +60,7 @@ sub add_prod_to_compare(){
 #   if (&check_prod_feature($idSaleMod)){
 
         my $SaleMod = Model::SaleMod->load($id) or print "nnnneeeeeeeeeeeeeeeeeeeeeeeeettttttttttttt";
-        warn Dumper($SaleMod);
+
 
         if ($cat eq ''){
                 $cat = $SaleMod->{idCategory};
@@ -63,7 +68,7 @@ sub add_prod_to_compare(){
         }
 
         elsif ($cat eq $SaleMod->{idCategory}){
-                @buf_old = @{$comprod->{'prod'}};
+                my @buf_old = @{$comprod->{'prod'}};
                 my $isin = 0;
                 foreach (@buf_old){
                         $isin = 1 if $_ eq $SaleMod->{id};
@@ -122,7 +127,8 @@ sub get_category_feature(){
 }
 
 sub compare(){
-    my $comprod = $s->get('comparison');
+    my $user = Core::User->current(1);
+    my $comprod = $user->session->get('comparison');
     my @buf;
 
     foreach (@{$comprod->{'prod'}}){

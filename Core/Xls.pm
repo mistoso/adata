@@ -1,5 +1,7 @@
 package Core::Xls;
 
+use warnings; use strict;
+
 use Data::Dumper;
 use Core;
 use DB;

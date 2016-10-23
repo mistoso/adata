@@ -1,6 +1,6 @@
 package Core::Template;
 
-use strict;
+use warnings; use strict;
 
 use Core;
 
@@ -14,7 +14,7 @@ use Template;
 use Template::Stash;
 
 use Apache2::RequestUtil;
-#use Core::Error;
+use Core::Error;
 use Core::Price;
 use Core::Meta;
 
@@ -60,7 +60,8 @@ sub get_template(%){
         print $tt_obj->error(); return 0; 
     };
 
-   $arg{session}->deleteObj();
+    Core::Error->clean();
+    $arg{session}->deleteObj();
 
     my $output =  Apache2::RequestUtil->request();
 

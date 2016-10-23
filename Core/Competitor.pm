@@ -1,5 +1,7 @@
 package Core::Competitor;
 
+use warnings; use strict;
+
 use Logger;
 use Data::Dumper;
 

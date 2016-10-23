@@ -1,6 +1,7 @@
 package Core::Gallery;
-#use warnings;
-#use strict;
+
+use warnings; use strict;
+
 use Image::Magick;
 
 use DB;

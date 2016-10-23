@@ -1,4 +1,5 @@
 package Core::Meta::APRTYPE;
+use warnings; use strict;
 use Model::Meta;
 use DB;
 

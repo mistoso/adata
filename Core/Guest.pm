@@ -1,5 +1,7 @@
 package Core::Guest;
 
+use warnings; use strict;
+
 use Core::Session;
 
 sub new {

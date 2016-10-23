@@ -1,4 +1,5 @@
 package Core::Meta;
+use strict;
 
 use Core::Meta::Factory;
 

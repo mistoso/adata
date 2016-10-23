@@ -1,4 +1,5 @@
 package Logger;
+use strict;
 
 BEGIN {
 	use Exporter();

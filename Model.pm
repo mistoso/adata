@@ -26,7 +26,8 @@ sub new() {
 
 
 sub newid(){
-	my $self = shift; return $db->lastInsertId() || $self->{id};
+	my $self = shift; 
+	return $db->{mysql_insertid} || $self->{id};
 }
 
 sub filter(){ return undef;}
@@ -79,8 +80,7 @@ sub _get_alias() {
 
 
 
-	$self->{alias}
-		||=  lc( Base::Translate->translate( $self->{name} ) ) ;
+	$self->{alias} ||=  lc( Base::Translate->translate( $self->{name} ) ) ;
 
 ##	$log->debug('_get_alias(): '.$self->{name}.' '.$self->{alias});
 ##	return $self->{alias};

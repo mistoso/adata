@@ -1,5 +1,7 @@
 package Core::Winkelwagen::Product;
 
+use warnings; use strict;
+
 use Model::SaleMod;
 use Core::Session;
 use Data::Dumper;

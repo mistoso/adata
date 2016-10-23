@@ -74,11 +74,7 @@ sub not_found(){
 
 sub res(){ 
     my $res;
-    
     if($args->{m} and $args->{a}){      
-    
-
-
         my $t2m = {
             'category'             => 'Model::Category',
             'brands'               => 'Model::Brand',
@@ -99,12 +95,10 @@ sub res(){
             'bannerproductypes'    => 'Model::BannerProductTypes',
             'bannerproducts'       => 'Model::BannerProducts',
         };
-
         my $m = $t2m->{ $args->{m} };
         no strict 'refs'; 
         eval {"use $m;"};  
         use strict;
-
         if ( $args->{a} eq 'list' )         { $res = $m->list();                                                }
         if ( $args->{a} eq 'new' )          { $res = $m->load($args);                                           }
         if ( $args->{a} eq 'load' )         { $res = $m->load( $args->{id} );                                   }
@@ -118,10 +112,11 @@ sub res(){
 
 sub ctpp(){     
     get_template_c(
-        'index_'.$_[0]  => $r, 
-         a              => $args,
-         item           => &res(),
-         url            => '/sitemap/ctpp',
+
+        'index_'.$_[0] => $r, 
+         a                => $args,
+         item            => &res(),
+         url              => '/sitemap/ctpp',
          format         => $_[0],
     );
     return OK;

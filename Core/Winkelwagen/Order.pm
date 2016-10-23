@@ -1,8 +1,11 @@
 package Core::Winkelwagen::Order;
 
+use warnings; use strict;
+
 use Model::SaleMod;
 use Core::Session;
 use Data::Dumper;
+
 use DB;
 use Logger;
 
@@ -61,7 +64,7 @@ sub storeOrderPosition(){
 
 	$position->save();
 
-	return OK;
+	return 1;
 
 }
 

@@ -1,4 +1,5 @@
 package Core::Meta::SEARCH;
+use warnings; use strict;
 use Model::Meta;
 use DB;
 

@@ -1,4 +1,5 @@
 package Core::Error;
+use strict;
 
 use Data::Dumper;
 use Core::Session;

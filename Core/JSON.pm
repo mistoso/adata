@@ -1,6 +1,8 @@
 package Core::JSON;
+
 use warnings; 
 use strict; 
+
 use DBI ();
 use Carp ();
 

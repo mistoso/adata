@@ -1,4 +1,7 @@
 package Core::AuthAccess;
+
+use warnings; use strict;
+
 use Cfg;
 
 use Apache2::Const qw/OK NOT_FOUND/;

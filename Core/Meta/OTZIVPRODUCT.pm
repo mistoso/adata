@@ -1,4 +1,5 @@
 package Core::Meta::OTZIVPRODUCT;
+use warnings; use strict;
 use Model::Meta;
 use Model::Category;
 

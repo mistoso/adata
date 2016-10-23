@@ -1,4 +1,5 @@
 package Tplc;
+use strict;
 
 #use latest;
 use Apache2::RequestUtil;

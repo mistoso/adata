@@ -1,4 +1,5 @@
 package Core::Meta::PRODUCTIMG;
+use warnings; use strict;
 use Model::Meta;
 use Model::Category;
 

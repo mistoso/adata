@@ -1,4 +1,5 @@
 package Core::Pager;
+use strict;
 
 use POSIX qw(ceil);
 use Cfg;

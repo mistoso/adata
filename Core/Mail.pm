@@ -1,4 +1,5 @@
 package Core::Mail;
+use strict;
 
 use Core::Mail::Query;
 

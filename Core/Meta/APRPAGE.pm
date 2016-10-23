@@ -1,4 +1,6 @@
 package Core::Meta::APRPAGE;
+use warnings; use strict;
+
 use Model::Meta;
 use DB;
 

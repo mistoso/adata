@@ -1,4 +1,5 @@
 package Core::Meta::URL;
+use warnings; use strict;
 use Model::Meta::Url;
 use DB;
 sub new {

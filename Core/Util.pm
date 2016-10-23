@@ -1,6 +1,7 @@
 package Mojo::Util;
 
 #use Mojo::Base 'Exporter';
+use warnings; use strict;
 
 use Carp qw(carp croak);
 

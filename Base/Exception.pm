@@ -1,5 +1,7 @@
 package Base::Exception;
 
+use strict;
+
 use base qw(Error);
 use overload ('""' => 'stringify');
 ###############################################################################
@@ -17,18 +19,9 @@ sub new {
 1;
 
 ###############################################################################
-package SQL::Exception;
-	
-	use base qw(Base::Exception);
-1;
 
 package StTemplate::Exception;
-
 	use base qw(Base::Exception);
 1;
 
-package Session::Exception;
-
-	use base qw(Base::Exception);
-1;
 ###############################################################################

@@ -1,5 +1,7 @@
 package Core::APU;
 
+use warnings; use strict;
+
 use Core::User;
 use Data::Dumper;
 use Model::SaleMod;

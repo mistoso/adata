@@ -3,6 +3,7 @@ package Entry::Winkelwagen;
 #use locale;
 #use POSIX qw(locale_h);
 #setlocale(LC_CTYPE,"ru_UA.UTF-8");
+use strict;
 
 use Apache2::Const qw/OK NOT_FOUND REDIRECT SERVER_ERROR FORBIDDEN M_GET/;
 use Apache2::SubRequest;
@@ -14,7 +15,7 @@ use Tools;
 use Core::Template qw/get_template/;
 use Data::Dumper;
 use Core::Session;
-use Core::User;
+
 use Cfg;
 use Clean;
 
@@ -31,43 +32,42 @@ use Model::NewOrdersPositions;
 
 use Core::Winkelwagen::Product;
 use Core::Winkelwagen::Order;
-use Core::Client::Authentication;
+#use Core::Client::Authentication;
+
 use Core::Client::Form;
 
 our $r;
 our $s;
-our $user;
+#our $user;
+
 our $args;
 our $directory;
-
-my $ALIAS = "\\w \\d \\- \\+ \\( \\)";
+our $page;
+our $extension;
 
 sub handler(){ 
-    	local our $r = shift;
-	local our $args = &Tools::get_request_params($r);
-
+    	$r = shift;
+	$args = &Tools::get_request_params($r);
 	$r->content_type('text/html');
-
-	our $s = Core::Session->instance(1);
-
-	local our $user = Core::User->current();
-
+	$s = Core::Session->instance(1);
+#	$user = Core::User->current();
 	Core::Meta->instance(1,$r->uri());
-
 	$r->uri() =~ /^\/(\w+)?\//;
-	local our $directory = $1;
+	$directory = $1;
 
 	$r->uri() =~ /^\/(\w+)?\/(\w+)?\.(\w+)$/;
-	local our $page = $2;
-	local our $extension = $3;
+	$page = $2;
+	$extension = $3;
 	
 	map { $args->{$_} = Clean->all($args->{$_}) } keys %{$args};
 
 	$log->info("Cont::Winkelwagen: Got /$directory/$page $extension");
+
+    no strict 'refs';
 	if (exists &{"dispatcher_".$page}) {
 		return &{"dispatcher_".$page}; 
 	}
-	
+    use strict;
 	return NOT_FOUND;
 }
 
@@ -90,8 +90,11 @@ sub dispatcher_index {
 }
 
 sub dispatcher_step2 {
-	return $tmp if my $tmp = step_check(2);
-	redirect("/$directory/delivery.html") if $user->id() > 0;
+
+#	return $tmp if my $tmp = step_check(2);
+
+#	redirect("/$directory/delivery.html") if $user->id() > 0;
+
 	get_template( 
 			'frontoffice/templates/winkelwagen' => $r,
 			'step' => '2',
@@ -114,7 +117,8 @@ sub dispatcher_amount {
 
 sub dispatcher_quick_order(){
 
-    return $tmp if my $tmp = step_check(2);
+#    return $tmp if my $tmp = step_check(2);
+
     my $quick_orders;
 
 	if ($args->{'delivery'}) {
@@ -125,7 +129,10 @@ sub dispatcher_quick_order(){
 
     if (keys %{$args} > 0) {
 	Core::Client::Form->checkRequiredQuickOrderFields($args);
+
 	my $buf = Core::Client::Form->getQuickOrderFields($args);
+	    print 'BUF->'.Dumper($buf);
+	    print 'err->'.Dumper(Core::Error->dumper());
 
 	if (not Core::Error->error()){
 
@@ -136,13 +143,15 @@ sub dispatcher_quick_order(){
 	    $quick_orders->save();
 
 	    foreach (@{Core::Winkelwagen::Product->getAll()}) {
-		my %orders_positions;
+		my $orders_positions;
+
 		$orders_positions->{idOrder}    = $quick_orders->{id};
 		$orders_positions->{state}      = "new";
 		$orders_positions->{idMod}      = $_->{product}->{id};
 		$orders_positions->{price}      = $_->{product}->{price};
 		$orders_positions->{createDate} = 'NOW()';
 		$orders_positions->{count}      = $_->{count};
+
 		my $model = Model::NewOrdersPositions->new($orders_positions);
 		$model->save();
         }
@@ -158,8 +167,10 @@ sub dispatcher_quick_order(){
 	$buf->{products} 	= Core::winkelwagenProducts();
 	Sendmail('quick_order',$buf);
 	###########################################
+
 	Core::Winkelwagen::Product->deleteAll();
-        use Model::APRPages;
+
+#        use Model::APRPages;
         
 	get_template(
             'frontoffice/templates/winkelwagen' => $r,
@@ -241,7 +252,7 @@ sub step_check() {
 
 	#for step delivery
 	if ( $step > 2 ){
-		$return = 'step2' if $user->id() eq '0';
+#		$return = 'step2' if $user->id() eq '0';
 	}
 	# for step 2
 	if  ( $step > 1 ) {

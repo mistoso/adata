@@ -1,4 +1,6 @@
 package Core::Meta::BRANDSERVICES;
+use warnings; use strict;
+
 use Model::Meta;
 use DB;
 

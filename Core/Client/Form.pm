@@ -1,5 +1,7 @@
 package Core::Client::Form;
 
+use strict;
+
 use locale;
 use POSIX qw(locale_h);
 setlocale(LC_CTYPE,"ru_RU.UTF8");
@@ -94,9 +96,11 @@ sub checkRequiredFields {
 	my $this = shift;
 	my $args = shift;
 	my $what = shift;
+
 	foreach my $key (keys %{$cfg->{'clients'}->{'required'}->{$what}}) {
 		if (not ($args->{$key} =~ /$cfg->{'clients'}->{'required'}->{$what}->{$key}/)) {
 			$log->info("Client::Form: Got error then check required $what field $key '".$args->{$key}."'");
+			print $key;
 			Core::Error->set($key);
 		}
 	}

@@ -1,5 +1,7 @@
 package Core::Client::Authentication;
 
+use strict;
+
 use Data::Dumper;
 use Core::Session;
 

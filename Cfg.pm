@@ -1,4 +1,5 @@
 package Cfg;
+use strict;
 
 BEGIN {
     use Exporter ();

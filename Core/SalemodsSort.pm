@@ -1,6 +1,7 @@
 package Core::SalemodsSort;
-#use warnings;
-#use strict;
+
+use warnings;
+use strict;
 
 use DB;
 use Core::User;

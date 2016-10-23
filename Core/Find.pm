@@ -1,12 +1,14 @@
 package Core::Find;
 
+use warnings; use strict;
+
 use Sphinx::Search;
 use POSIX;
 use Data::Dumper;
 use Cfg;
 use DB;
 use Clean;
-use strict;
+
 
 sub new(){
     my $class = shift;

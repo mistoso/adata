@@ -1,4 +1,5 @@
 package Core::Meta::PRODUCTOTZIV;
+use warnings; use strict;
 use Model::Meta;
 use Model::Category;
 use DB;

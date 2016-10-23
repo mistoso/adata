@@ -1,4 +1,5 @@
 package Search;
+use strict;
 
 use DBI;
 

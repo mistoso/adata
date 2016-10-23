@@ -1,4 +1,5 @@
 package Core::Meta::PRODUCTVIDEO;
+use warnings; use strict;
 use Model::Meta;
 use Model::Category;
 use DB;

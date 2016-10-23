@@ -1,10 +1,14 @@
 package Core::Session;
 
+use warnings; use strict;
+
 use Error;
 use Logger;
 use Base::Exception;
 use Data::Dumper;
+
 use DB;
+
 use Apache2::Cookie;
 use Apache2::RequestUtil;
 
@@ -87,7 +91,7 @@ sub _new_instance {
 
 #--------------------------------------------------------------------------------------------------
 sub deleteObj {
-	$this = shift;
+	my $this = shift;
 }
 #--------------------------------------------------------------------------------------------------
 sub dumper {
