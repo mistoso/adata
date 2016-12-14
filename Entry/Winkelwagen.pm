@@ -131,8 +131,8 @@ sub dispatcher_quick_order(){
 	Core::Client::Form->checkRequiredQuickOrderFields($args);
 
 	my $buf = Core::Client::Form->getQuickOrderFields($args);
-	    print 'BUF->'.Dumper($buf);
-	    print 'err->'.Dumper(Core::Error->dumper());
+#	    print 'BUF->'.Dumper($buf);
+#	    print 'err->'.Dumper(Core::Error->dumper());
 
 	if (not Core::Error->error()){
 

@@ -14,27 +14,20 @@ BEGIN {
 sub get_template(%);
 
 sub get_template(%) {
-    my $theme  = shift;
-    my $output = shift;
-    my %arg    = @_;
-
+    my $theme   = shift;
+    my $output  = shift;
+    my %arg     = @_;
     use Template;
     use Template::Stash;
-
-    $arg{url} = $output->uri();
-
+    $arg{url} 	= $output->uri();
     use Tools;
-    
     $arg{a}     = &Tools::get_request_params($output);
     $arg{geoip} = &Tools::geoip($output);
-
     $arg{theme} = 'arctic';     ## fast add. Needed refactoring. for backoffice
-
     use Core;
-    $arg{lib} = Core->new();
-
-    $theme =~ tr/\\/\//;
-    $theme .= '.html';
+    $arg{lib}   = Core->new();
+    $theme      =~ tr/\\/\//;
+    $theme     .= '.html';
 
     use Cfg;
 

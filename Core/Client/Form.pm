@@ -100,7 +100,7 @@ sub checkRequiredFields {
 	foreach my $key (keys %{$cfg->{'clients'}->{'required'}->{$what}}) {
 		if (not ($args->{$key} =~ /$cfg->{'clients'}->{'required'}->{$what}->{$key}/)) {
 			$log->info("Client::Form: Got error then check required $what field $key '".$args->{$key}."'");
-			print $key;
+#			print $key;
 			Core::Error->set($key);
 		}
 	}

@@ -231,8 +231,7 @@ sub _delete_from_db(){
 
 	my $sth = $db->prepare('delete from '.$self->db_table.' WHERE id = ?');
 
-	$sth->execute($self->{id})
-	  or return $self->Error('err delete '.$self->db_table.' with id = '.$self->{id});
+	$sth->execute($self->{id})  or return $self->Error('err delete '.$self->db_table.' with id = '.$self->{id});
 }
 
 sub Error(){

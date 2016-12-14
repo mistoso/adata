@@ -27,7 +27,7 @@ sub execute {
 	#--------------------------------------------------------------------
 	# Your code start ehre 
 	#--------------------------------------------------------------------
-	my $sth = $db->prepare('select id as id from catalog where isPublic = 1 and deleted != 1 order by name');
+	my $sth = $db->prepare('select id as id from catalog where isPublic = 1 order by name');
 	$sth->execute();
 	while (my $item = $sth->fetchrow_hashref){
 	    my $catalog = Model::Catalog->load($item->{id});

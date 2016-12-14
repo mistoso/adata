@@ -148,7 +148,7 @@ BEGIN {
     }
 
     our $Logger = q(
-        log4perl.category.Core.Logger       = ERROR, Logfile
+        log4perl.category.Core.Logger       = ALL, Logfile
         log4perl.appender.Logfile           = Log::Log4perl::Appender::File
         log4perl.appender.Logfile.filename  = sub { return Cfg->get_cfg(); }
         log4perl.appender.Logfile.autoflush = 1

@@ -1564,8 +1564,7 @@ sub admin_catalog_generate() {
 
 sub admin_catalog_drop_catalog() {
     my $catalog = Model::Catalog->load( $args->{id} );
-    $catalog->{deleted} = 1;
-    $catalog->save();
+    $catalog->delete();
     return OK;
 }
 ####  ####

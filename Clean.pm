@@ -1,5 +1,6 @@
 package Clean;
-use strict;
+
+#use strict;
 
 use HTML::TagFilter;
 use String::Replace ':all';

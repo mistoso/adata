@@ -4,14 +4,18 @@ use modules 	   qw( warnings strict Cfg Config::IniFiles Util Data::Dumper Tools
 use Apache2::Const qw/ OK NOT_FOUND M_GET /;
 
 our ( $r, $arg, $q, $d, $s, %pkg );
+
 tie %pkg, 'Config::IniFiles', ( -file =>  $cfg->{pkg} );
 
 sub handler() {
-    $r = shift; $q = $r->uri(); $r->content_type('text/html; charset=utf-8'); $arg = &Tools::get_request_params($r);
-    my %c = ( 
-	"\\/tss\\/list\\/([" . $cfg->{A} . "]+)\\.([json|html]+)" => *tss_list{CODE},
-	"\\/tss\\/list_csv\\/([" . $cfg->{A} . "]+)\\.([json|html]+)" => *tss_list_csv{CODE} 
+    $r 	 = shift; 
+    $q 	 = $r->uri(); 
+    $arg = &Tools::get_request_params($r);
+    $r->content_type('text/html; charset=utf-8'); 
 
+    my %c = ( 
+	"\\/tss\\/list\\/([" . $cfg->{A} . "]+)\\.([json|html]+)" 	=> *tss_list{CODE},
+	"\\/tss\\/list_csv\\/([" . $cfg->{A} . "]+)\\.([json|html]+)" 	=> *tss_list_csv{CODE} 
     );
 
     foreach my $e ( keys %c ) { if ((my @a=($q =~ /^$e$/)) && $r) { return &{$c{$e}}(@a); } }

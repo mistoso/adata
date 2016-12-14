@@ -73,40 +73,21 @@ sub get_multiple_param($$){
 sub get_request_param($){
 	my $key = shift;
 	my $r = get_request();
-
 	my $item =  get_request_params($r);
 	return $item->{$key};
 }
 
 sub get_request_params($){
 	my $r = shift or return;
-#	return &get_form_data($r);
-
 	if (my $pargs = $r->pnotes('request-data')){
-#	    warn "Request fetched from cache\n";
 	    return $pargs;
 	}
-#	warn "Processing new request method = ".$r->method().' caller: '.caller;
 	my $apr = Apache2::Request->new($r);
 	my @keys = $apr->param;
 	my %args;
 	foreach my $key(@keys){
 	    $args{$key} = $r->method eq 'POST' ? $apr->body($key) : $apr->param($key);
-#	    warn "got param $key = $args{$key}\n";
-#	    my @value = $apr->param($key);
-#	    next unless scalar @value;
-#	    if (@value > 1) {
-#		$args{$key} = \@value;
-#	    }else{
-#		$args{$key} = $value[0];
-#	    }
 	}
-
-#	$args{UPLOAD} = $apr->upload || undef;
-#	use Data::Dumper;
-#	warn Dumper(\%args);
-#	my $bargs = &get_form_data($r);
-#	warn Dumper($bargs);
 	$r->pnotes('request-data',\%args);
 	return \%args;
 }
