@@ -46,6 +46,8 @@ use Data::Dumper;
 our ( $r, $args, $user, $import );
 
 our $t = 'backoffice/templates/';
+our $tpl_cmn   = $t . 'common/';
+our $tpl_jqw   = $t.'jqw/';
 
 our $MSG_CODES  = {};
 our $type2model = {
@@ -57,7 +59,9 @@ our $type2model = {
     'currency'             => 'Model::Currency',
     'office'               => 'Model::Office',
     'gallery'              => 'Core::Gallery::Image',
-    'banner_product_types' => 'Model::BannerProductTypes'
+    'banner_product_types' => 'Model::BannerProductTypes',
+    'user'                 => 'Core::User',
+    'user_type'            => 'Core::User::Type'
 };
 
 ####   ####
@@ -137,7 +141,9 @@ sub redirect($) {
 
 ####   ####
 
+
 sub admin_common() {
+    
     my $m = $type2model->{ $args->{m} };
 
     no strict 'refs';
@@ -164,11 +170,10 @@ sub admin_common() {
         my $m = $m->new($args);
         &_view( 'load', $m->save() );
     }
+
 }
 
 
-our $tpl_cmn   = $t . 'common/';
-our $tpl_jqw   = $t.'jqw/';
 
 sub _view() {
     my $v = $args->{t} || shift ||  'index';
@@ -176,7 +181,9 @@ sub _view() {
     $v = $args->{t} || 'index';
 
     get_template(
+        
         $tpl_jqw . $v => $r,
+
         tpl         => $args->{m} . '/' . $_[0] . '.html',
         itm         => $_[1]
     );
@@ -194,6 +201,67 @@ sub admin_guess {
     return OK;
 }
 
+sub admin_css() {
+    
+    Core::File->replace( $cfg->{temp}->{css_file}, $args->{str} )               if $args->{str};
+    Core::File->replace( $cfg->{temp}->{css_file_start}, $args->{str_start} )   if $args->{str_start};
+
+    get_template(
+        $t . 'cat_css' => $r,
+        itm            => Core::File->read( $cfg->{temp}->{css_file} ),
+        itm_start      => Core::File->read( $cfg->{temp}->{css_file_start} )
+    );
+
+    return OK;
+}
+
+
+sub admin_seofile() {
+
+    Core::File->replace( $cfg->{temp}->{seo_file}, $args->{str} ) if $args->{str};
+
+    get_template( 
+        $t.'cat_seofile' => $r, 
+        itm  => Core::File->read( $cfg->{temp}->{seo_file}) 
+    );
+
+    return OK;
+}
+
+
+sub admin_efile() {
+    use Array::Utils qw(:all);
+    my @b = ();
+    my @files;
+
+    my $efile = $args->{efile};
+
+    my $dir = '/var/www/' . $cfg->{temp}->{host} . '/html/frontoffice/templates/';
+
+    chomp($efile);
+
+    return NOT_FOUND if ( $efile =~ m/^[^a-zA-Z]/ );
+    
+    return NOT_FOUND unless Core::File->is( $dir . $efile );
+
+    my @find = `find $dir |replace '$dir' '' |grep html`;
+
+    foreach (@find) {
+        chomp($_);
+        next if m/different/;
+        push @files, { name => $_ };
+    }
+
+    Core::File->replace( $dir . $efile, $args->{str} ) if $args->{str};
+
+    get_template(
+        $t . 'efile' => $r,
+        files        => \@files,
+        itm          => Core::File->read( $dir . $efile )
+    );
+
+    return OK;
+}
 sub admin_run_script() {
     my @buf;
     my @script;
@@ -314,21 +382,6 @@ sub admin_sms_req() {
     return OK;
 }
 
-sub admin_css() {
-    Core::File->replace( $cfg->{temp}->{css_file}, $args->{str} )
-        if $args->{str};
-        
-    Core::File->replace( $cfg->{temp}->{css_file_start}, $args->{str_start} )
-        if $args->{str_start};
-
-    get_template(
-        $t . 'cat_css' => $r,
-        itm            => Core::File->read( $cfg->{temp}->{css_file} ),
-        itm_start      => Core::File->read( $cfg->{temp}->{css_file_start} )
-    );
-
-    return OK;
-}
 
 sub admin_users() {
     return NOT_FOUND unless $args->{type};
@@ -360,35 +413,8 @@ sub admin_users_logs_list() {
     );
     return OK;
 }
-sub admin_efile() {
-    use Array::Utils qw(:all);
-    my @b = ();
-    my @files;
-    my $efile = $args->{efile};
-    my $dir = '/var/www/' . $cfg->{temp}->{host} . '/html/frontoffice/templates/';
 
-    chomp($efile);
-    return NOT_FOUND if ( $efile =~ m/^[^a-zA-Z]/ );
-    return NOT_FOUND unless Core::File->is( $dir . $efile );
 
-    my @find = `find $dir |replace '$dir' '' |grep html`;
-
-    foreach (@find) {
-        chomp($_);
-        next if m/different/;
-        push @files, { name => $_ };
-    }
-
-    Core::File->replace( $dir . $efile, $args->{str} ) if $args->{str};
-
-    get_template(
-        $t . 'efile' => $r,
-        files        => \@files,
-        itm          => Core::File->read( $dir . $efile )
-    );
-
-    return OK;
-}
 
 
 sub admin_users_orders() {
@@ -4342,6 +4368,20 @@ sub admin_banners_add_group() {
 
     &admin_banners_product_type_list();
 }
+
+
+
+sub admin_salemods_banners(){
+    return OK unless $args->{id};
+
+    get_template(
+        'backoffice/templates/salemods/banners' => $r,
+        model => Model::SaleMod->load($args->{id}),
+        );
+
+    return OK;
+}
+
 ####  ####
 sub admin_competitors() {
     get_template( 'backoffice/templates/competitors/list' => $r, );

@@ -48,9 +48,14 @@ BEGIN {
         temp =>
         {
             'TAG_STYLE'            => 'html',
+
             'css'	               => $sname,
+
 	        'css_file'	           => $path_html.'frontoffice/public/css/'.$sname.'.css',
             'css_file_start'       => $path_html.'frontoffice/public/css/start_'.$sname.'.css',
+
+            'seo_file'             => $path_html.'frontoffice/public/seo/'.$sname.'.csv',
+
             'html_file'            => $path_html.'frontoffice/frontoffice/templates/',
     	    'logo'	               => $sname.'logo',
     	    'ico'	               => $sname.'icon.jpg',

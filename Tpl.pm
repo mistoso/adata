@@ -63,6 +63,7 @@ sub get_template(%) {
     $output_html =~ s/{ /{/mg;
     $output_html =~ s/{\n/{/g;
     $output_html =~ s/ }/}/mg;
+    $output_html =~ s/> </></mg;
 
     use Apache2::RequestUtil;
     $output = Apache2::RequestUtil->request();

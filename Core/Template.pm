@@ -66,7 +66,7 @@ sub get_template(%){
     my $output =  Apache2::RequestUtil->request();
 
     $output_html =~ s/\t/ /mg;
-    $output_html =~ s/\n/ /mg;
+   # $output_html =~ s/\n/ /mg;
     $output_html =~ s/ {2,}/ /mg;
 
 

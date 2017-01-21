@@ -38,8 +38,10 @@ sub seo_words(){
 
     
     return '' if $url eq '/';
+    
+    my $file =  $cfg->{temp}->{seo_file};
 
-    my @b = `cat /var/www/pokupay.kiev.ua/bin/seo/words.csv |grep $url | awk -F',' '{ print \$2; }' |replace '"' ''`;
+    my @b = `cat $file |grep $url | awk -F',' '{ print \$1; }' |replace '"' ''`;
     
     my $cnt = 1 + scalar @b;  
     

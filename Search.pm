@@ -65,11 +65,6 @@ sub search_front_in(){
     return \@b;
 }
 
-
-
-
-
-
 sub search(){
     my ($my, $str) = @_;  
     
@@ -84,7 +79,6 @@ sub search(){
 
     return \@b;
 }
-
 
 sub search_group(){
     my ($my, $str, $grp) = @_;  
@@ -135,7 +129,5 @@ sub search_comp(){
 
     return \@b;
 }
-
-
 
 1;
